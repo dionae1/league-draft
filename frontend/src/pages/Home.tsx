@@ -2,7 +2,7 @@ import { Link } from "react-router";
 
 function Home() {
     return (
-        <div className="bg-black/95 text-white min-h-screen flex flex-col items-center pt-10">
+        <div className="bg-zinc-950 text-white min-h-screen flex flex-col items-center pt-10">
             <h1 className="text-5xl text-center pt-20 mb-4">Welcome to Draft iT</h1>
             <p className="text-xl text-center">Your one-stop solution for all your drafting needs.</p>
 
@@ -14,13 +14,13 @@ function Home() {
             <div className="flex flex-row items-center gap-6">
                 <Link to="/classic"
                     className="text-2xl border-2 border-white p-4 rounded-md w-56 text-center
-                    hover:bg-white hover:text-black transition"
+                    hover:bg-white hover:text-zinc-950 transition"
                 >
                     Classic Draft
                 </Link>
                 <Link to="/fearless"
                     className="text-2xl border-2 border-white p-4 rounded-md w-56 text-center
-                    hover:bg-white hover:text-black transition"
+                    hover:bg-white hover:text-zinc-950 transition"
                 >
                     Fearless Draft
                 </Link>
