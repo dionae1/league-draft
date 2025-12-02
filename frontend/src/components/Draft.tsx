@@ -5,6 +5,8 @@ import Pick from "./Pick"
 import Ban from "./Ban"
 import Icon from "./Icon"
 
+import api from "../api/client"
+
 import type { Champion } from "../types/Data";
 
 type Action = "pick" | "ban" | "complete" | "starting"
@@ -107,6 +109,20 @@ function Draft({ onComplete, fearlessBans }: DraftProps) {
         if (pickIndex === 10) {
             setAction("complete")
 
+            const bluePicks = ([pickedChampions[1], pickedChampions[4], pickedChampions[5], pickedChampions[8], pickedChampions[9]]).map((c) => c.name)
+            const redPicks = [pickedChampions[2], pickedChampions[3], pickedChampions[6], pickedChampions[7], pickedChampions[10]].map((c) => c.name)
+            const blueBans = [bannedChampions[1], bannedChampions[3], bannedChampions[5], bannedChampions[7], bannedChampions[9]].map((c) => c.name)
+            const redBans = [bannedChampions[2], bannedChampions[4], bannedChampions[6], bannedChampions[8], bannedChampions[10]].map((c) => c.name)
+
+            api.post("/data/draft", {
+                bluePicks,
+                redPicks,
+                blueBans,
+                redBans,
+                fearlessBans
+            })
+
+            // index 0 is unused to make the pick/ban order easier to manage, start with 1
             if (onComplete) onComplete(pickedChampions.slice(1))
         }
     }
