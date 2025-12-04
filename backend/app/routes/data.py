@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends
-from services.data import DataService
+from data_dragon.data_service import DataService
 
 router = APIRouter()
 
